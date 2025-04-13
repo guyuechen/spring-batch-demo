@@ -11,7 +11,7 @@
 	<groupId>com.sb</groupId>
 	<artifactId>springbatch</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>springbatch</name>
+	<name>demo</name>
 	<description>Demo project for Spring Batch</description>
 	<properties>
 		<java.version>1.8</java.version>
@@ -29,14 +29,6 @@
 		</dependency>
 
 		<!-- 给定一个数据库的依赖, 不然项目会无法成功启动 -->
-		<!--
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		-->
-
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>

@@ -23,50 +23,50 @@ public class JobDemo {
     @Autowired
     private StepBuilderFactory stepBuilderFactory;
 
-   @Bean
-   public Job jobDemoJob() {
-       return jobBuilderFactory.get("jobDemoJob")
-               .start(step1())
-               .on("COMPLETED").to(step2())
-               .from(step2()).on("COMPLETED").to(step3()) // fail(), stopAndRestart(step1())
-               .from(step3()).end()
-               .build();
-   }
+    @Bean
+    public Job jobDemoJob() {
+        return jobBuilderFactory.get("jobDemoJob")
+                .start(step1())
+                .on("COMPLETED").to(step2())
+                .from(step2()).on("COMPLETED").to(step3()) // fail(), stopAndRestart(step1())
+                .from(step3()).end()
+                .build();
+    }
 
-   @Bean
-   public Step step1() {
-       return stepBuilderFactory.get("step1")
-               .tasklet(new Tasklet() {
-                   @Override
-                   public RepeatStatus execute(StepContribution stepContribution, ChunkContext chunkContext) throws Exception {
-                       System.out.println("My second job!");
-                       return RepeatStatus.FINISHED;
-                   }
-               }).build();
-   }
+    @Bean
+    public Step step1() {
+        return stepBuilderFactory.get("step1")
+                .tasklet(new Tasklet() {
+                    @Override
+                    public RepeatStatus execute(StepContribution stepContribution, ChunkContext chunkContext) throws Exception {
+                        System.out.println("My second job!");
+                        return RepeatStatus.FINISHED;
+                    }
+                }).build();
+    }
 
-   @Bean
-   public Step step2() {
-       return stepBuilderFactory.get("step2")
-               .tasklet(new Tasklet() {
-                   @Override
-                   public RepeatStatus execute(StepContribution stepContribution, ChunkContext chunkContext) throws Exception {
-                       System.out.println("This is step#2");
-                       return RepeatStatus.FINISHED;
-                   }
-               }).build();
-   }
+    @Bean
+    public Step step2() {
+        return stepBuilderFactory.get("step2")
+                .tasklet(new Tasklet() {
+                    @Override
+                    public RepeatStatus execute(StepContribution stepContribution, ChunkContext chunkContext) throws Exception {
+                        System.out.println("This is step#2");
+                        return RepeatStatus.FINISHED;
+                    }
+                }).build();
+    }
 
-   @Bean
-   public Step step3() {
-       return stepBuilderFactory.get("step3")
-               .tasklet(new Tasklet() {
-                   @Override
-                   public RepeatStatus execute(StepContribution stepContribution, ChunkContext chunkContext) throws Exception {
-                       System.out.println("This is step#3, the last one");
-                       return RepeatStatus.FINISHED;
-                   }
-               }).build();
-   }
+    @Bean
+    public Step step3() {
+        return stepBuilderFactory.get("step3")
+                .tasklet(new Tasklet() {
+                    @Override
+                    public RepeatStatus execute(StepContribution stepContribution, ChunkContext chunkContext) throws Exception {
+                        System.out.println("This is step#3, the last one");
+                        return RepeatStatus.FINISHED;
+                    }
+                }).build();
+    }
 
 }

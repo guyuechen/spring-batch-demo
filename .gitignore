@@ -1,5 +1,6 @@
 # JetBrains IDE (e.g., IntelliJ, WebStorm, PyCharm)
 .idea/
+target/
 
 # Compiled class file
 *.class

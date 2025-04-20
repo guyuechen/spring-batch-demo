@@ -56,6 +56,7 @@ public class UpdateAddressMasterJobConfig {
                 .reader(addressFileReader)
                 .processor(addressConvertHanToZenProcessor)
                 .writer(addressDbWriter)
+                .allowStartIfComplete(true)
                 .build();
     }
 

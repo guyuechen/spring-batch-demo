@@ -18,6 +18,7 @@ public class RestartDemo {
 
     @Autowired
     private JobBuilderFactory jobBuilderFactory;
+
     @Autowired
     private StepBuilderFactory stepBuilderFactory;
 
@@ -29,12 +30,12 @@ public class RestartDemo {
     @Qualifier("restartWriter")
     private ItemWriter<? super Customer> restartWriter;
 
-    @Bean
-    public Job restartJob() {
-        return jobBuilderFactory.get("restartJob")
-                .start(restartStep())
-                .build();
-    }
+    // @Bean
+    // public Job restartJob() {
+    //     return jobBuilderFactory.get("restartJob")
+    //             .start(restartStep())
+    //             .build();
+    // }
 
     @Bean
     public Step restartStep() {

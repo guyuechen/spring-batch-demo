@@ -29,16 +29,16 @@ public class ItemWriterDemo {
     @Qualifier("myWriter")
     private ItemWriter<? super String> myWriter;
 
-    @Bean
-    public Job ItemWriterDemoJob() {
-        return jobBuilderFactory.get("ItemWriterDemoJob")
-                .start(ItemWriterDemoStep())
-                .build();
-    }
+    // @Bean
+    // public Job itemWriterDemoJob() {
+    //     return jobBuilderFactory.get("itemWriterDemoJob")
+    //             .start(itemWriterDemoStep())
+    //             .build();
+    // }
 
     @Bean
-    public Step ItemWriterDemoStep() {
-        return stepBuilderFactory.get("ItemWriterDemoStep")
+    public Step itemWriterDemoStep() {
+        return stepBuilderFactory.get("itemWriterDemoStep")
                 .<String, String>chunk(5)
                 .reader(myReader())
                 .writer(myWriter).build();

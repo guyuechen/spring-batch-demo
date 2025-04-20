@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sb.example.address.repository.AddressRepository">
+    <insert id="insertAddress" parameterType="com.sb.example.address.entity.Address">
+        INSERT INTO TBL_ADDRESS
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            jis,
+            zipcode_old,
+            zipcode,
+            prefecture_kana,
+            city_kana,
+            town_kana,
+            prefecture,
+            city,
+            town,
+            duplicate_town,
+            koaza,
+            has_tyome,
+            duplicate_zipcode,
+            change_reason
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            #{jis ,jdbcType=CHAR},
+            #{zipcodeOld ,jdbcType=CHAR},
+            #{zipcode ,jdbcType=CHAR},
+            #{prefectureKana ,jdbcType=CHAR},
+            #{cityKana ,jdbcType=CHAR},
+            #{townKana ,jdbcType=CHAR},
+            #{prefecture ,jdbcType=CHAR},
+            #{city ,jdbcType=CHAR},
+            #{town ,jdbcType=CHAR},
+            #{duplicateTown ,jdbcType=CHAR},
+            #{koaza ,jdbcType=CHAR},
+            #{hasTyome ,jdbcType=CHAR},
+            #{duplicateZipcode ,jdbcType=CHAR},
+            #{changeReason ,jdbcType=CHAR}
+        </trim>
+    </insert>
+</mapper>

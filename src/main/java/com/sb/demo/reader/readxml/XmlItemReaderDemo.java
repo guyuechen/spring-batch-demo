@@ -24,6 +24,7 @@ public class XmlItemReaderDemo {
 
     @Autowired
     private JobBuilderFactory jobBuilderFactory;
+
     @Autowired
     private StepBuilderFactory stepBuilderFactory;
 
@@ -31,12 +32,12 @@ public class XmlItemReaderDemo {
     @Qualifier("xmlItemWriter")
     private ItemWriter<? super Customer> xmlItemWriter;
 
-    @Bean
-    public Job xmlItemReaderDemoJob() {
-        return jobBuilderFactory.get("xmlItemReaderDemoJob")
-                .start(xmlItemReaderDemoStep())
-                .build();
-    }
+    // @Bean
+    // public Job xmlItemReaderDemoJob() {
+    //     return jobBuilderFactory.get("xmlItemReaderDemoJob")
+    //             .start(xmlItemReaderDemoStep())
+    //             .build();
+    // }
 
     @Bean
     public Step xmlItemReaderDemoStep() {

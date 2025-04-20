@@ -29,16 +29,16 @@ public class FileItemReaderDemo {
     @Qualifier("fileItemWriter")
     private ItemWriter<? super Customer> fileItemWriter;
 
-    @Bean
-    public Job FileItemReaderDemo() {
-        return jobBuilderFactory.get("FileItemReaderDemo")
-                .start(FileItemReaderDemoStep())
-                .build();
-    }
+    // @Bean
+    // public Job fileItemReaderDemo() {
+    //     return jobBuilderFactory.get("fileItemReaderDemo")
+    //             .start(fileItemReaderDemoStep())
+    //             .build();
+    // }
 
     @Bean
-    public Step FileItemReaderDemoStep() {
-        return stepBuilderFactory.get("FileItemReaderDemoStep")
+    public Step fileItemReaderDemoStep() {
+        return stepBuilderFactory.get("fileItemReaderDemoStep")
                 .<Customer, Customer>chunk(5)
                 .reader(fileItemReader())
                 .writer(fileItemWriter)

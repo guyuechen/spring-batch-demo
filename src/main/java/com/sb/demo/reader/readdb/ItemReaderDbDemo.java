@@ -38,12 +38,12 @@ public class ItemReaderDbDemo {
     @Qualifier("dbJdbcWriter")
     private ItemWriter<? super User> dbJdbcWriter;
 
-    @Bean
-    public Job ItemReaderDbDemoJob() {
-        return jobBuilderFactory.get("itemReaderDbDemoJob")
-                .start(itemReaderDbStep())
-                .build();
-    }
+    // @Bean
+    // public Job ItemReaderDbDemoJob() {
+    //     return jobBuilderFactory.get("itemReaderDbDemoJob")
+    //             .start(itemReaderDbStep())
+    //             .build();
+    // }
 
     @Bean
     public Step itemReaderDbStep() {

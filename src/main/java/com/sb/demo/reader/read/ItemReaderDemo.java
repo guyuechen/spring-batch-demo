@@ -23,13 +23,13 @@ public class ItemReaderDemo {
     @Autowired
     private StepBuilderFactory stepBuilderFactory;
 
-    @Bean
-    public Job itemReaderDemoJob() {
-        return jobBuilderFactory.get("itemReaderDemoJob")
-                .start(itemReaderDemoStep())
-                .listener(new MyJobListener())
-                .build();
-    }
+    // @Bean
+    // public Job itemReaderDemoJob() {
+    //     return jobBuilderFactory.get("itemReaderDemoJob")
+    //             .start(itemReaderDemoStep())
+    //             .listener(new MyJobListener())
+    //             .build();
+    // }
 
     @Bean
     public Step itemReaderDemoStep() {

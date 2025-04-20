@@ -23,15 +23,15 @@ public class JobDemo {
     @Autowired
     private StepBuilderFactory stepBuilderFactory;
 
-    @Bean
-    public Job jobDemoJob() {
-        return jobBuilderFactory.get("jobDemoJob")
-                .start(step1())
-                .on("COMPLETED").to(step2())
-                .from(step2()).on("COMPLETED").to(step3()) // fail(), stopAndRestart(step1())
-                .from(step3()).end()
-                .build();
-    }
+    // @Bean
+    // public Job jobDemoJob() {
+    //     return jobBuilderFactory.get("jobDemoJob")
+    //             .start(step1())
+    //             .on("COMPLETED").to(step2())
+    //             .from(step2()).on("COMPLETED").to(step3()) // fail(), stopAndRestart(step1())
+    //             .from(step3()).end()
+    //             .build();
+    // }
 
     @Bean
     public Step step1() {

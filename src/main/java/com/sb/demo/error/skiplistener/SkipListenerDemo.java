@@ -34,12 +34,12 @@ public class SkipListenerDemo {
     @Autowired
     private MySkipListener mySkipListener;
 
-    @Bean
-    public Job skipListenerDemoJob() {
-        return jobBuilderFactory.get("skipListenerDemoJob")
-                .start(skipListenerDemoStep())
-                .build();
-    }
+    // @Bean
+    // public Job skipListenerDemoJob() {
+    //     return jobBuilderFactory.get("skipListenerDemoJob")
+    //             .start(skipListenerDemoStep())
+    //             .build();
+    // }
 
     @Bean
     public Step skipListenerDemoStep() {

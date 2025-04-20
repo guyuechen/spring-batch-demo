@@ -25,6 +25,7 @@ public class MultiFileItemReaderDemo {
 
     @Autowired
     private JobBuilderFactory jobBuilderFactory;
+
     @Autowired
     private StepBuilderFactory stepBuilderFactory;
 
@@ -35,12 +36,12 @@ public class MultiFileItemReaderDemo {
     @Value("classpath:/file*.txt")
     private Resource[] fileResources;
 
-    @Bean
-    public Job multiFileItemReaderDemoJob() {
-        return jobBuilderFactory.get("multiFileItemReaderDemoJob")
-                .start(multiFileItemReaderDemoStep())
-                .build();
-    }
+    // @Bean
+    // public Job multiFileItemReaderDemoJob() {
+    //     return jobBuilderFactory.get("multiFileItemReaderDemoJob")
+    //             .start(multiFileItemReaderDemoStep())
+    //             .build();
+    // }
 
     @Bean
     public Step multiFileItemReaderDemoStep() {
